@@ -1,11 +1,11 @@
-for t in range(10):
+for t in range(10): # 문제에서 10개라고 정의.
     t = int(input())
-    arr = [list(map(int, input().split())) for _ in range(100)]
+    arr = [list(map(int, input().split())) for _ in range(100)] # 2차원 리스트 생성
 
-    maxV = 0
+    maxV = 0 # 한번 돌 때 마다 maxV 값 초기화
     for i in range(100):
 
-        # 가로 합
+        # 가로(행) 합
         row = 0
         for j in range(100):
             row += arr[i][j]
@@ -13,7 +13,7 @@ for t in range(10):
             if maxV < row:
                 maxV = row
 
-        # 세로 합
+        # 세로(열) 합
         col = 0
         for j in range(100):
             col += arr[j][i]
