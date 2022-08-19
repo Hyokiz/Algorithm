@@ -7,7 +7,7 @@ def dfs(x, y):
         nx = x + dx[d]
         ny = y + dy[d]
 
-        if 0 <= nx <= n - 1 and 0 <= ny <= m - 1 and not visited[nx][ny] and arr[nx][ny] == 1:
+        if 0 <= nx < n and 0 <= ny < m  and not visited[nx][ny] and arr[nx][ny] == 1:
             dfs(nx, ny)
 
 # 상하좌우
