@@ -1,8 +1,9 @@
 n = int(input())
-cnt = 2
-while n != 1:
-    if n % cnt == 0:
-        n = n / cnt
-        print(cnt)
-    else:
-        cnt += 1
+
+for i in range(2, int(n ** 0.5) + 1):
+    while n % i == 0:
+        print(i)
+        n //= i
+
+if n > 1:
+    print(n)
