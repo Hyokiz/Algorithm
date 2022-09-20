@@ -1,15 +1,8 @@
 for t in range(1, int(input()) + 1):
     n, m = map(int, input().split())
+    number = format(m, 'b')
 
-    ans = ''
-    for i in range(n):
-        if m/2 != m//2:
-            ans += '1'
-        else:
-            ans += '0'
-        m //= 2
-
-    if '0' in ans:
-        print(f'#{t} OFF')
-    else:
+    if number[len(number)-n:len(number)] == '1' * n:
         print(f'#{t} ON')
+    else:
+        print(f'#{t} OFF')
