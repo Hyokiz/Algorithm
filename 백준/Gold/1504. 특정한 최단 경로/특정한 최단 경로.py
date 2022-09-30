@@ -1,6 +1,5 @@
 import sys
 from heapq import heappop, heappush
-input = sys.stdin.readline
 INF = 99999999
 
 def dijkstra(start, end):
