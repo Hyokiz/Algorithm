@@ -1,5 +1,7 @@
 # 7576. 토마토
 from collections import deque
+import sys
+input = sys.stdin.readline
 
 m, n = map(int, input().split())
 arr = [list(map(int, input().split())) for _ in range(n)]
