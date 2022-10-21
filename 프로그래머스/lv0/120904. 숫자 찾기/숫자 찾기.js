@@ -1,9 +1,3 @@
 function solution(num, k) {
-    const number = (''+num).split('');
-    let answer = number.indexOf(k.toString())
-    if (answer !== -1) {
-        return answer + 1
-    } else {
-        return answer
-    }
+    return num.toString().split("").map((el) => Number(el)).indexOf(k) + 1 || -1
 }
