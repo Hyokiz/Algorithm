@@ -1,10 +1,13 @@
+// function solution(my_str, n) {
+//     let res = [];
+//     for (let i = 0; i < my_str.length; i+=n) res.push(my_str.slice(i, i+n));
+//     return res;
+// }
+
 function solution(my_str, n) {
-    var answer = [];
-    const li = my_str.split('')
-    let i = 0
-    while (i < li.length) {
-        answer.push(li.slice(i, i + n).join(''))
-        i += n
+    let answer = [];
+    for (i = 0; i < my_str.length; i += n) {
+        answer.push(my_str.slice(i, i + n))
     }
-    return answer;
+    return answer
 }
