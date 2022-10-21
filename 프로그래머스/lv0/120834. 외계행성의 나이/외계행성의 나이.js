@@ -1,3 +1,3 @@
 function solution(age) {
-  return [...('' + age)].map(num => String.fromCharCode('a'.charCodeAt(0) + +num)).join('');
+  return age.toString().split('').map((el) => 'abcdefghij'[el]).join('')
 }
