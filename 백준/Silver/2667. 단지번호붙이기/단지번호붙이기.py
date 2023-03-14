@@ -1,37 +1,37 @@
-def bfs(x, y):
-    visited[x][y] = True  # 시작 좌표 방문 처리
-    queue = [(x, y)]  # 시작 좌표를 넣고 큐를 초기화
-    total = 1  # 단지내 집의 수 초기화
+# 2667. 단지번호붙이기
 
-    while queue:
-        x, y = queue.pop(0)  # 현재 방문 지점
-        for k in range(4):
-            nx = x + dx[k]
-            ny = y + dy[k]
+n = int(input())
+graph = [list(map(int, input())) for _ in range(n)]
+dx, dy = [-1, 1, 0, 0], [0, 0, -1, 1]
+# print(graph)
+visited = [[False for _ in range(n)] for _ in range(n)]
+dist = []
+# 위에서부터 돌면서 dfs 로 방문
+# 한번 방문한 곳의 길이를 측정 후 리스트에 저장
+def out_of_range(x, y):
+    return not(0 <= x < n and 0 <= y < n)
 
-            # 지도의 범위 안에 있고 & 아직 방문하지 않았으며 & 집이 있다면
-            if 0 <= nx < n and 0 <= ny < n and not visited[nx][ny] and board[nx][ny] == 1:
-                visited[nx][ny] = True  # 방문처리
-                queue.append((nx, ny))  # 방문한 좌표 큐에 넣음
-                total += 1  # 집이 있을 때마다 + 1
+def dfs(x, y):
+    global cnt
+    visited[x][y] = True
+    cnt += 1
 
-    return total
+    for i, j in zip(dx, dy):
+        nx, ny = x + i, y + j
+        if out_of_range(nx, ny):
+            continue
+
+        if not visited[nx][ny] and graph[nx][ny]:
+            dfs(nx, ny)
 
 
-# 상, 하, 좌, 우
-dx = [-1, 1, 0, 0]
-dy = [0, 0, -1, 1]
-
-n = int(input())  # 지도의 크기
-board = [list(map(int, input())) for _ in range(n)]  # 지도
-visited = [[False] * n for _ in range(n)]  # 방문 처리 리스트
-result = []
-
-for i in range(n):
-    for j in range(n):
-        if not visited[i][j] and board[i][j] == 1:  # 아직 방문하지 않은 집 탐색
-            result.append(bfs(i, j))
-
-print(len(result))
-for i in sorted(result):
-    print(i)
+for r in range(n):
+    for c in range(n):
+        if not visited[r][c] and graph[r][c]:
+            cnt = 0
+            dfs(r, c)
+            dist.append(cnt)
+dist.sort()
+print(len(dist))
+for d in dist:
+    print(d)
