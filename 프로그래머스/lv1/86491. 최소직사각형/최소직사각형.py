@@ -1,7 +1,2 @@
 def solution(sizes):
-    xs, ys = [], []
-    for i, j in sizes:
-        xs.append(max(i, j))
-        ys.append(min(i, j))
-    print(xs, ys)
-    return max(xs) * max(ys)
+    return max(max(x) for x in sizes) * max(min(x) for x in sizes)
