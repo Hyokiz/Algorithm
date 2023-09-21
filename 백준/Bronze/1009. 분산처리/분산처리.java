@@ -22,9 +22,7 @@ public class Main {
             }
             sb.append(num + "\n");
         }
-        bw.write(String.valueOf(sb));
-        bw.flush();
-        bw.close();
+        System.out.println(sb);
     }
 
 }
