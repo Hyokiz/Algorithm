@@ -1,2 +1,2 @@
 def solution(a, b):
-    return int(max(f'{a}{b}', f'{b}{a}'))
+    return max(int(f'{a}{b}'), int(f'{b}{a}'))
