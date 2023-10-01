@@ -1,12 +1,2 @@
 def solution(myString):
-    answer = []
-    cnt = 0
-    for i in range(len(myString)):
-        if myString[i] == "x":
-            answer.append(cnt)
-            cnt = 0
-        else:
-            cnt += 1
-    else:
-        answer.append(cnt)
-    return answer
+    return [len(i) for i in myString.split("x")]
