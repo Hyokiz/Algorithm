@@ -1,3 +1,5 @@
 def solution(strArr):
-    li = [len(i) for i in strArr]
-    return max([li.count(i) for i in range(min(li), max(li) + 1)])
+    cnt = [0 for _ in range(31)]
+    for i in strArr:
+        cnt[len(i)] += 1
+    return max(cnt)
